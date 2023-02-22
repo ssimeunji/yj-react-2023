@@ -1,0 +1,15 @@
+.container {
+    height: 54px;
+    background-color: #262626;
+    line-height: 54px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    padding: 0 20px;
+    margin: 0 20px;
+}
+.logo a {
+    color: #fff;
+}
