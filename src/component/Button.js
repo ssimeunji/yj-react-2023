@@ -1,56 +1,48 @@
 import styled, { css } from "styled-components";
 
-const SIZES = {
-    sm: css`
-    --button-font-size: 0.875rem;
-    --button-padding: 8px 12px;
-    --button-radius: 4px;
-  `,
-    md: css`
-    --button-font-size: 1rem;
-    --button-padding: 12px 16px;
-    --button-radius: 8px;
-  `,
-    lg: css`
-    --button-font-size: 1.25rem;
-    --button-padding: 16px 20px;
-    --button-radius: 12px;
-  `,
-};
+const VARIANTS = {
 
-const StyledButton = styled.button`
-    ${(p) => p.sizeStyle}
+    header: css`
 
-    margin: 0;
-    border: none;
-    cursor: pointer;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: var(--button-font-size, 1rem);
-    padding: var(--button-padding, 12px 16px);
-    border-radius: var(--button-radius, 8px);
-    background: var(--button-bg-color, #0d6efd);
-    color: var(--button-color, #ffffff);
+    box-shadow: 0 2px 0 #6f9a37;
+    color: #ffffff;
+    background-color: #82b440;
 
     &:active,
     &:hover,
     &:focus {
-    background: var(--button-hover-bg-color, #025ce2);
+        background-color: rgba(130, 180, 64 , 0.5);
+        box-shadow: 0 2px 0 rgba(111, 154, 55, 0.5);
     }
 
     &:disabled {
     cursor: default;
     opacity: 0.5;
-    background: var(--button-bg-color, #025ce2);
     }
+    `
+}
+
+const StyledButton = styled.button`
+    ${(p) => p.variantsStyle}
+
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    line-height: 1.5;
 `;
 
-function Button({ disabled, size, children }) {
-    const sizeStyle = SIZES[size];
+function Button({ disabled, variant, children }) {
+    const variantsStyle = VARIANTS[variant];
 
     return (
     <StyledButton
         disabled={disabled}
-        sizeStyle={sizeStyle}>
+        variantsStyle={variantsStyle}
+    >
         {children}
     </StyledButton>
     );
